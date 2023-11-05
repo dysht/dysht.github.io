@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>leetcode刷题日记——螺旋矩阵</title>
+    <link href="/2023/11/05/leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/"/>
+    <url>/2023/11/05/leetcode%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0%E2%80%94%E2%80%94%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/</url>
+    
+    <content type="html"><![CDATA[<p>经典题，模拟法</p><hr><h1 id="54-螺旋矩阵"><a href="#54-螺旋矩阵" class="headerlink" title="54.螺旋矩阵"></a>54.螺旋矩阵</h1><p>给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。<br><a href="https://leetcode.cn/problems/spiral-matrix/description/">spiral-matrix</a></p><h1 id="59-螺旋矩阵Ⅱ"><a href="#59-螺旋矩阵Ⅱ" class="headerlink" title="59 螺旋矩阵Ⅱ"></a>59 螺旋矩阵Ⅱ</h1><p>给你一个正整数 n ，生成一个包含 1 到 n^2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。<br><a href="https://leetcode.cn/problems/spiral-matrix-ii/">spiral-matrix-ii</a></p><h2 id="思路-模拟法"><a href="#思路-模拟法" class="headerlink" title="思路 模拟法"></a>思路 模拟法</h2><p>两道题都是顺时针遍历，即向右走，走到边界后向下，走到边界后向左，走到边界后向上。</p><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs excel">class Solution &#123;<br>    public <span class="hljs-built_in">int</span>[][] generateMatrix(<span class="hljs-built_in">int</span> <span class="hljs-built_in">n</span>) &#123;<br>        <span class="hljs-built_in">int</span>[][] res = new <span class="hljs-built_in">int</span>[<span class="hljs-built_in">n</span>][<span class="hljs-built_in">n</span>];<br>        <span class="hljs-built_in">int</span>[] dx = new <span class="hljs-built_in">int</span>[]&#123; <span class="hljs-number">0</span> , <span class="hljs-number">1</span> , <span class="hljs-number">0</span> , -<span class="hljs-number">1</span> &#125; , dy = new <span class="hljs-built_in">int</span>[] &#123; <span class="hljs-number">1</span> , <span class="hljs-number">0</span> , -<span class="hljs-number">1</span>, <span class="hljs-number">0</span> &#125;;<br>        <span class="hljs-built_in">int</span> <span class="hljs-built_in">t</span> = <span class="hljs-number">0</span>;<br>        for( <span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span> , j = <span class="hljs-number">0</span> , k = <span class="hljs-number">1</span> ; k &lt;= <span class="hljs-built_in">n</span>*<span class="hljs-built_in">n</span> ; ++k)&#123;<br>            res[i][j] = k;<br>            <span class="hljs-built_in">int</span> x = i + dx[<span class="hljs-built_in">t</span>] , y = j + dy[<span class="hljs-built_in">t</span>];<br>            <span class="hljs-built_in">if</span>( x&lt;<span class="hljs-number">0</span> || x&gt;=<span class="hljs-built_in">n</span> || y&lt;<span class="hljs-number">0</span> || y&gt;=<span class="hljs-built_in">n</span> || res[x][y]&gt;<span class="hljs-number">0</span> )&#123;<br>                <span class="hljs-built_in">t</span> = ( <span class="hljs-built_in">t</span> + <span class="hljs-number">1</span> ) % <span class="hljs-number">4</span>;<br>            &#125;<br>            i += dx[<span class="hljs-built_in">t</span>];<br>            j += dy[<span class="hljs-built_in">t</span>];<br>        &#125;<br>        return res;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>注意，在选择下一步的行走方向时，先沿用原有的方向dx[t]，dy[t]，发现超出边界或已访问过后，再选择下一个方向。</p><p>原有错误思路：沿用“右下左上”的方向选择顺序，哪个方向能走就走，但这种方法会出现原本应向上，但向右能走，因此走了右方向。</p><p>所以，先沿用原有方向是重点，原有方向走不了，下一个方向一定可以。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>leetcode,数算</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2023/10/28/hello-world/"/>
+    <url>/2023/10/28/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
